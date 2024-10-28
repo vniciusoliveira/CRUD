@@ -40,6 +40,7 @@ O sistema cria automaticamente a tabela usuarios se ela ainda não existir.
 
 Certifique-se de que o arquivo `db.php` possui as configurações corretas de conexão com o banco de dados:
 
+```bash
 $servername = "127.0.0.1";
 $username = "root";
 $password = "";
