@@ -46,7 +46,7 @@ $servername = "127.0.0.1";
 $username = "root";
 $password = "";
 $dbname = "formulario";
-bash```
+```
 
 4. **Executando o Projeto**:
 
