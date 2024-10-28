@@ -46,7 +46,8 @@ $servername = "127.0.0.1";
 $username = "root";
 $password = "";
 $dbname = "formulario";
-````markdown
+
+##
 4. **Executando o Projeto**:
 
 Coloque o projeto no diretório raiz do seu servidor local (ex.: htdocs para XAMPP).
