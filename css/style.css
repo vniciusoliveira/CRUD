@@ -1,0 +1,188 @@
+/* css/estilo.css */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    animation: topdown ease 800ms;
+
+}
+
+:root{
+    font-size: 62.5%;
+    font-family: 'Belanosima', sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.5rem; /* Aumenta o espaçamento entre as linhas */
+}
+
+.container {
+    max-width: 144rem;
+    margin: 2.0rem auto;
+    padding: 2.0rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.2rem 1.0rem rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.6rem;
+    text-align: center;
+    color: #000;
+    margin-bottom: 2.0rem; /* Espaçamento adicional abaixo do título */
+}
+
+form {
+    font-size: 1.6rem;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 0.8rem; /* Aumenta o espaçamento entre o rótulo e o campo */
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+button {
+    padding: 1.2rem; /* Aumenta o preenchimento para melhor usabilidade */
+    margin-bottom: 2.0rem; /* Aumenta o espaçamento entre os campos */
+    border: 0.1rem solid #ccc;
+    border-radius: 0.4rem;
+    font-size: 1.6rem; /* Ajusta o tamanho da fonte */
+}
+
+button {
+    background-color: #00a300; /* Tom pastel para o botão */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Suaviza a transição da cor */
+}
+
+button:hover {
+    background-color: #008600; /* Tom pastel mais escuro para hover */
+}
+
+.alert {
+    padding: 1.2rem;
+    margin-bottom: 2.0rem;
+    border-radius: 0.4rem;
+}
+
+.alert.success {
+    background-color: #dff0d8;
+    color: #3c763d;
+}
+
+.alert.error {
+    background-color: #f2dede;
+    color: #a94442;
+}
+
+/* Estilização da tabela */
+table {
+    width: 100%; /* A tabela ocupa toda a largura do container */
+    border-collapse: collapse;
+    margin-top: 2.0rem;
+    overflow-x: auto; /* Permite rolagem horizontal em telas menores */
+}
+
+th, td {
+    font-size: 1.6rem;
+    padding: 1.6rem; /* Aumenta o preenchimento das células para torná-las menos apertadas */
+    text-align: left; /* Alinha o conteúdo à esquerda */
+    border-bottom: 0.1rem solid #ddd; /* Linha de borda nas células */
+    white-space: nowrap; /* Impede quebra de linha nas células */
+}
+
+th {
+    font-size: 1.6rem;
+    background-color: #0004ff; /* Cor de fundo para cabeçalhos */
+    color: #fff; /* Cor do texto nos cabeçalhos */
+}
+
+/* Estilização dos botões */
+.btn-voltar,
+.btn-editar,
+.btn-excluir {
+    display: inline-block;
+    padding: 1.0rem 1.5rem;
+    margin: 5px;
+    border: none;
+    border-radius: 0.4rem;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-voltar {
+    padding: 1.2rem; /* Aumenta o preenchimento para melhor usabilidade */
+    font-size: 1.6rem;
+    background-color: #0004ff; /* Tom pastel para botão voltar */
+}
+
+.btn-editar {
+    background-color: #FFA500;
+}
+
+.btn-excluir {
+    background-color: #DC3545;
+}
+
+.btn-voltar:hover,
+.btn-editar:hover,
+.btn-excluir:hover {
+    opacity: 0.8; /* Opacidade para efeito hover */
+}
+
+/* Contêiner para os botões */
+.btn-container {
+    display: flex;
+    justify-content: center; /* Centraliza os botões */
+    flex-wrap: wrap; /* Permite que os botões se ajustem em múltiplas linhas em telas pequenas */
+    margin-top: 1.5rem; /* Adiciona espaço entre os elementos */
+}
+
+.btn-container a,
+.btn-container button {
+    margin: 0.5rem 1.0rem; /* Espaçamento entre os botões */
+}
+
+/* Responsividade */
+@media (max-width: 60.0rem) {
+    .container {
+        padding: 1.5rem; /* Ajusta o preenchimento em telas menores */
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    button {
+        font-size: 0.9rem; /* Diminui o tamanho da fonte em telas pequenas */
+    }
+
+    th, td {
+        padding: 1.0rem; /* Diminui o preenchimento das células em telas menores */
+    }
+
+    .btn-container {
+        flex-direction: column; /* Organiza os botões em uma coluna para caberem em telas menores */
+        align-items: center; /* Centraliza os botões na coluna */
+    }
+
+    .btn-voltar,
+    .btn-editar,
+    .btn-excluir {
+        width: 100%; /* Expande o botão para ocupar toda a largura em telas pequenas */
+        text-align: center;
+    }
+}
