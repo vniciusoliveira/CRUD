@@ -16,27 +16,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // Verificar se o email já existe
         $checkEmail = $conn->prepare("SELECT * FROM usuarios WHERE email = ?");
-        $checkEmail->bind_param("s", $email);
-        $checkEmail->execute();
-        $result = $checkEmail->get_result();
+        if ($checkEmail) {
+            $checkEmail->bind_param("s", $email);
+            $checkEmail->execute();
+            $result = $checkEmail->get_result();
 
-        if ($result->num_rows > 0) {
-            $message = "<div class='alert error'>Erro: Este email já está cadastrado.</div>";
-        } else {
-            // Inserir dados no banco
-            $stmt = $conn->prepare("INSERT INTO usuarios (nome, email, endereco, telefone) VALUES (?, ?, ?, ?)");
-            $stmt->bind_param("ssss", $nome, $email, $endereco, $telefone);
-            
-            if ($stmt->execute()) {
-                $message = "<div class='alert success'>Novo Registro criado!</div>";
+            if ($result->num_rows > 0) {
+                $message = "<div class='alert error'>Erro: Este email já está cadastrado.</div>";
             } else {
-                $message = "<div class='alert error'>Erro: " . $stmt->error . "</div>";
+                // Inserir dados no banco
+                $stmt = $conn->prepare("INSERT INTO usuarios (nome, email, endereco, telefone) VALUES (?, ?, ?, ?)");
+                if ($stmt) {
+                    $stmt->bind_param("ssss", $nome, $email, $endereco, $telefone);
+                    if ($stmt->execute()) {
+                        $message = "<div class='alert success'>Novo Registro criado!</div>";
+                    } else {
+                        $message = "<div class='alert error'>Erro: " . $stmt->error . "</div>";
+                    }
+                    $stmt->close();
+                } else {
+                    $message = "<div class='alert error'>Erro ao preparar o insert: " . $conn->error . "</div>";
+                }
             }
-            $stmt->close();
+            $checkEmail->close();
+        } else {
+            $message = "<div class='alert error'>Erro ao preparar o select: " . $conn->error . "</div>";
         }
-        $checkEmail->close();
     }
 }
+
+$conn->close(); // Fecha a conexão após todas as operações
 ?>
 
 <?php
@@ -72,13 +81,12 @@ include 'includes/header.php';
             <input type="tel" id="telefone" name="telefone" required>
 
             <div class="btn-container">
-            <button type="submit">Enviar</button>
-            <a href="users.php" class="btn-voltar">Voltar</a> <!-- Adicionando a classe do botão -->
+                <button type="submit">Enviar</button>
+                <a href="users.php" class="btn-voltar">Voltar</a>
             </div>
-
         </form>
 
-        <a href="users.php" class="btn-voltar">Ver Usuários Cadastrados</a> <!-- Adicionando a classe do botão -->
+        <a href="users.php" class="btn-voltar">Ver Usuários Cadastrados</a>
     </div>
 </body>
 </html>

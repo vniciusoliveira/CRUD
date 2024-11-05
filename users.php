@@ -23,7 +23,6 @@ if (isset($_GET['delete'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title; ?></title>
-    <link rel="stylesheet" href="usuarios.css"> <!-- Incluindo o CSS específico para a lista de usuários -->
 </head>
 <body>
     <div class="container"> <!-- Adicionando um container para melhor layout -->
