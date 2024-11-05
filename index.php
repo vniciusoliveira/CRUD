@@ -7,7 +7,7 @@ include 'includes/header.php';
 
 <div class="btn-container"> <!-- Div para centralizar os botões -->
     <a href="register.php" class="btn-voltar">Cadastrar Novo Usuário</a>
-    <a href="users.php" class="btn-voltar">Ver Usuários Cadastrados</a>
+    <a href="users.php" class="btn-voltar">Ver Usuários Cadastrados no sistema</a>
 </div>
 
 </div>
