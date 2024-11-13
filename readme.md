@@ -29,7 +29,7 @@ Este projeto é um sistema de Cadastro, Edição e Exclusão de Usuários (CRUD)
 1. **Clone o repositório**:
 
    ```bash
-   git clone https://github.com/seuusuario/suarepositorio.git
+   git clone https://github.com/vniciusoliveira/CRUD.git
 
 2. **Configuração do Banco de Dados**:
 
