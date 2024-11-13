@@ -1,41 +1,55 @@
-/* css/estilo.css */
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
-    animation: topdown ease 800ms;
-
+    animation: fadeIn ease 600ms; /* Efeito de entrada suave */
 }
 
-:root{
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+:root {
     font-size: 62.5%;
-    font-family: 'Belanosima', sans-serif;
+    font-family: 'Inter', sans-serif; /* Fonte moderna */
+    --primary-color: #3a86ff;
+    --secondary-color: #8338ec;
+    --background-color: #f9f9fb;
+    --text-color: #333;
+    --button-hover-color: #3a80d1;
+    --shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.1);
 }
 
 body {
-    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.5rem; /* Aumenta o espaçamento entre as linhas */
+    line-height: 1.6;
+    font-smooth: antialiased;
 }
 
 .container {
     max-width: 144rem;
     margin: 2.0rem auto;
     padding: 2.0rem;
-    background-color: #fff;
-    border-radius: 0.5rem;
-    box-shadow: 0 0.2rem 1.0rem rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border-radius: 0.8rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+}
+
+.container:hover {
+    transform: scale(1.02);
 }
 
 h1 {
-    font-size: 2.6rem;
+    font-size: 2.8rem;
     text-align: center;
-    color: #000;
-    margin-bottom: 2.0rem; /* Espaçamento adicional abaixo do título */
+    color: var(--primary-color);
+    margin-bottom: 2.4rem;
+    font-weight: 700;
 }
 
 form {
@@ -53,114 +67,127 @@ input[type="text"],
 input[type="email"],
 input[type="tel"],
 button {
-    padding: 1.2rem; /* Aumenta o preenchimento para melhor usabilidade */
+    padding: 1.2rem;
     margin-bottom: 2.0rem; /* Aumenta o espaçamento entre os campos */
-    border: 0.1rem solid #ccc;
-    border-radius: 0.4rem;
-    font-size: 1.6rem; /* Ajusta o tamanho da fonte */
+    border: 0.1rem solid #e0e0e0;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0.2rem 0.8rem rgba(0, 128, 255, 0.1);
+    outline: none;
 }
 
 button {
-    background-color: #00a300; /* Tom pastel para o botão */
-    color: #fff;
+    background-color: var(--primary-color);
+    color: #ffffff;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s; /* Suaviza a transição da cor */
+    transition: background-color 0.3s, transform 0.3s;
+    text-decoration: none; /* Remove o sublinhado dos botões */
+    margin: .5rem;
+    padding: 1.2rem;
 }
 
 button:hover {
-    background-color: #008600; /* Tom pastel mais escuro para hover */
+    background-color: var(--button-hover-color);
+    transform: translateY(-2px);
+}
+
+button, .btn-container a {
+    text-decoration: none; /* Remove o sublinhado dos links nos botões */
 }
 
 .alert {
-    padding: 1.2rem;
-    margin-bottom: 2.0rem;
-    border-radius: 0.4rem;
+    padding: 1.6rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: background-color 0.3s;
 }
 
 .alert.success {
-    background-color: #dff0d8;
-    color: #3c763d;
+    background-color: #d1f7d1;
+    color: #2e7d32;
 }
 
 .alert.error {
-    background-color: #f2dede;
-    color: #a94442;
+    background-color: #fddede;
+    color: #c62828;
 }
 
-/* Estilização da tabela */
 table {
-    width: 100%; /* A tabela ocupa toda a largura do container */
+    width: 100%;
     border-collapse: collapse;
     margin-top: 2.0rem;
+    box-shadow: var(--shadow);
     overflow-x: auto; /* Permite rolagem horizontal em telas menores */
 }
 
 th, td {
     font-size: 1.6rem;
-    padding: 1.6rem; /* Aumenta o preenchimento das células para torná-las menos apertadas */
-    text-align: left; /* Alinha o conteúdo à esquerda */
-    border-bottom: 0.1rem solid #ddd; /* Linha de borda nas células */
+    padding: 1.6rem;
+    text-align: left;
+    border-bottom: 0.1rem solid #eee;
     white-space: nowrap; /* Impede quebra de linha nas células */
 }
 
 th {
     font-size: 1.6rem;
-    background-color: #0004ff; /* Cor de fundo para cabeçalhos */
-    color: #fff; /* Cor do texto nos cabeçalhos */
+    background-color: var(--primary-color);
+    color: #ffffff;
 }
 
-/* Estilização dos botões */
 .btn-voltar,
 .btn-editar,
 .btn-excluir {
     display: inline-block;
-    padding: 1.0rem 1.5rem;
-    margin: 5px;
+    padding: 1.0rem 1.5rem; /* Uniformiza o preenchimento */
+    margin: 0.5rem;
     border: none;
     border-radius: 0.4rem;
-    color: #fff;
-    text-decoration: none;
+    color: #ffffff;
+    transition: background-color 0.3s, transform 0.3s;
+    text-decoration: none; /* Remove o sublinhado dos botões */
     text-align: center;
 }
 
 .btn-voltar {
     padding: 1.2rem; /* Aumenta o preenchimento para melhor usabilidade */
     font-size: 1.6rem;
-    background-color: #0004ff; /* Tom pastel para botão voltar */
+    background-color: var(--primary-color);
 }
 
 .btn-editar {
-    background-color: #FFA500;
+    background-color: #ffb703;
 }
 
 .btn-excluir {
-    background-color: #DC3545;
+    background-color: #e63946;
 }
 
 .btn-voltar:hover,
 .btn-editar:hover,
 .btn-excluir:hover {
-    opacity: 0.8; /* Opacidade para efeito hover */
+    transform: translateY(-3px);
+    opacity: 0.9;
 }
 
-/* Contêiner para os botões */
 .btn-container {
     display: flex;
-    justify-content: center; /* Centraliza os botões */
-    flex-wrap: wrap; /* Permite que os botões se ajustem em múltiplas linhas em telas pequenas */
-    margin-top: 1.5rem; /* Adiciona espaço entre os elementos */
+    justify-content: center;
+    gap: 1rem; /* Espaço entre os botões */
+    flex-wrap: wrap;
+    margin-top: 2rem;
 }
 
-.btn-container a,
-.btn-container button {
-    margin: 0.5rem 1.0rem; /* Espaçamento entre os botões */
-}
-
-/* Responsividade */
-@media (max-width: 60.0rem) {
+@media (max-width: 600px) {
     .container {
-        padding: 1.5rem; /* Ajusta o preenchimento em telas menores */
+        padding: 2rem;
     }
 
     input[type="text"],
@@ -169,20 +196,20 @@ th {
     button {
         font-size: 0.9rem; /* Diminui o tamanho da fonte em telas pequenas */
     }
-
+    
     th, td {
-        padding: 1.0rem; /* Diminui o preenchimento das células em telas menores */
+        padding: 1rem;
     }
 
     .btn-container {
-        flex-direction: column; /* Organiza os botões em uma coluna para caberem em telas menores */
-        align-items: center; /* Centraliza os botões na coluna */
+        flex-direction: column;
+        align-items: center;
     }
 
     .btn-voltar,
     .btn-editar,
     .btn-excluir {
-        width: 100%; /* Expande o botão para ocupar toda a largura em telas pequenas */
+        width: 100%;
         text-align: center;
     }
 }
